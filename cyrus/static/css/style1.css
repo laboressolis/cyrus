@@ -1,0 +1,71 @@
+/* Defaults */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Containers and Particles */
+#tsParticles {
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1.33fr 1.33fr 1.33fr;
+    grid-template-rows: repeat(4, 1fr);
+    background-color: rgba(32, 178, 171, 0.39);
+    width: 100%;
+    height: 100%;
+    padding: 0%;
+}
+
+/*  Grid items */
+#textbox {
+    grid-row: 4 / 5;
+    background-color: rgba(173, 216, 230, 0.377);
+}
+
+#leftnav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    background-color: rgba(240, 128, 128, 0.219);
+}
+
+#replybox {
+    grid-row: 1 / 4;
+    background-color: rgba(144, 238, 144, 0.315);
+}
+
+#replybox, #textbox {
+    grid-column: 2 / 5;
+  }
+
+
+/* Nav Styling */
+ul {
+    list-style-type: none;
+    padding-top: 4%;
+}
+  
+li {
+    margin: 5px;
+    padding-left: 64px;
+    font-size: 32px;
+    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+  
+li:hover{
+    transform: scale(1.2);
+}
+
+/* Reply Box Styling */
+#reply-static, #reply-dynamic{
+    font-size: 30px;
+    padding: 4% 6.4% 0% 6.4%;
+}
+#reply-dynamic{
+    padding-top:0%
+}

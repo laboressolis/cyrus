@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="static/css/style1.css">
+    </head>
+    <body>
+        <div id="tsParticles">
+            <div id="container">
+                <div id="textbox">Textbox content</div>
+                <div id="replybox">
+                    <div id="reply-static">Cyrus:</div>
+                    <div id="reply-dynamic">Hello, I'm Cyrus, Mayank's personal assistant. Feel free to ask me any questions about Mayank!</div>
+                </div>
+                <div id="leftnav">
+                    <ul>
+                        <li class="items">
+                        </li>
+                        <li class="items">About</li>
+                        <li class="items">LinkedIn</li>
+                        <li class="items">Twitter</li>
+                        <li class="items">Mail</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.0.6/tsparticles.bundle.min.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const configScripts = ["static/js/app0.js", "static/js/app2.js", "static/js/app3.js","static/js/app4.js"];
+                //"static/js/app5.js", "static/js/app1.js"
+                const randomScript = configScripts[Math.floor(Math.random() * configScripts.length)];
+                const scriptElement = document.createElement("script");
+                scriptElement.src = randomScript;
+                document.body.appendChild(scriptElement);
+            });
+        </script>
+    </body>
+</html>
