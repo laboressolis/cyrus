@@ -6,9 +6,12 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="static/css/style1.css">
+        <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
+        <div id="mobile-header">
+            <button id="menu-toggle">&#9776;</button>
+        </div>
         <div id="tsParticles">
             <div id="container">
                 <div id="textbox">
@@ -21,10 +24,10 @@
                 <div id="leftnav">
                     <div class="profile"><img src="static/assets/profile.png" class="user"></div>
                     <ul>
-                        <li class="items">About</li>
-                        <li class="items">LinkedIn</li>
-                        <li class="items">Twitter</li>
-                        <li class="items">Mail</li>
+                        <li class="items"><a href="/about.html" target="_blank" rel="noopener noreferrer">About</a></li>
+                        <li class="items"><a href="https://linkedin.com/in/mayank-kanti-mehta-710002217" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                        <li class="items"><a href="https://x.com/mayankkanti_" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                        <li class="items"><a href="mailto:mayankkanti2325@gmail.com">Mail</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,18 +45,29 @@
                 document.body.appendChild(scriptElement);
             });
         </script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const menuToggle = document.getElementById("menu-toggle");
+                const leftNav = document.getElementById("leftnav");
+    
+                // Toggle leftnav visibility on button click
+                menuToggle.addEventListener("click", () => {
+                    leftNav.classList.toggle("open");
+                });
+            });
+        </script>
         {% comment %} Script for textbox area {% endcomment %}
         <script>
-            // This codeblock was written with the help of my friends and was later rewritten by an AI.
-            document.addEventListener("DOMContentLoaded", function() {
-                document.getElementById("bottom-text-textarea").addEventListener("keydown", async function(event) {
+            // This codeblock was written with the help of my friends and was later rewritten by an AI. Imma try to explain it for future me
+            document.addEventListener("DOMContentLoaded", function() { // Ensures that the content is loaded first
+                document.getElementById("bottom-text-textarea").addEventListener("keydown", async function(event) { //adds an even for bottom-text-area
                     if (event.key === "Enter") {
-                        event.preventDefault();
-                        console.log("Enter Key Pressed");
-                        const query = document.getElementById("bottom-text-textarea").innerText.trim();
-                        document.getElementById("reply-dynamic").innerHTML = "thinking...";
-                        document.getElementById("bottom-text-textarea").innerText = "";
-                        try {
+                        event.preventDefault(); // idk what this does
+                        console.log("Enter Key Pressed"); 
+                        const query = document.getElementById("bottom-text-textarea").innerText.trim(); // gets the text of textarea and trims
+                        document.getElementById("reply-dynamic").innerHTML = "thinking..."; // updates it to "thinking..." until response
+                        document.getElementById("bottom-text-textarea").innerText = ""; // clears the textarea
+                        try { // post for django backend
                             const response = await fetch('http://127.0.0.1:8000/chatbot/', {
                                 method: 'POST',
                                 headers: {
