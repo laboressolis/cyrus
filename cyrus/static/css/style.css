@@ -1,0 +1,194 @@
+/* Defaults */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    color: whitesmoke;
+    overflow-x: hidden;
+}
+
+/* Containers and Particles */
+#tsParticles {
+    width: 100%;
+    height: 100%;
+}
+
+#container {
+    display: grid;
+    grid-template-columns: 1fr 1.33fr 1.33fr 1.33fr;
+    grid-template-rows: repeat(4, 1fr);
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(32, 178, 171, 0.39); */
+}
+
+#textbox {
+    grid-row: 4 / 5;
+    /* background-color: rgba(173, 216, 230, 0.377); */
+}
+
+#leftnav {
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    /* background-color: rgba(240, 128, 128, 0.219); */
+}
+
+#replybox {
+    grid-row: 1 / 4;
+    /* background-color: rgba(144, 238, 144, 0.315); */
+}
+
+#replybox, #textbox {
+    grid-column: 2 / 5;
+}
+
+/*Nav Styling */
+ul {
+    list-style-type: none;
+    padding-top: 4%;
+}
+
+li {
+    margin: 5px;
+    padding-left: 64px;
+    font-size: 32px;
+    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+li:hover {
+    transform: scale(1.2);
+}
+
+/* ReplyBox Styling */
+#reply-static, #reply-dynamic {
+    font-size: 30px;
+    padding: 4% 6.4% 0% 6.4%;
+}
+
+#reply-dynamic {
+    padding-top: 0%;
+}
+
+/*TextBox Stylings */
+#textbox {
+    padding: 10px;
+    font-size: 30px;
+}
+
+#idkhowtodothis{
+    padding:4% 6.4% 0% 6.4%;
+}
+
+#bottom-text-textarea {
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    min-height: 50px;
+    color: rgb(255, 255, 255);
+    outline: none;
+}
+
+#bottom-text-textarea:empty:before {
+    content: "Type your message here...";
+    color: rgb(255, 252, 252);
+    pointer-events: none;
+}
+
+/* Stuff for Profile Pic */
+/* https://stackoverflow.com/questions/25685227/how-to-display-user-profile-image-in-circle */
+.user {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: solid rgba(255, 255, 255, 0.8);
+}
+
+.profile {
+    margin: 5px;
+    padding-top: 50%;
+    padding-left: 20%;
+}
+
+.items a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.items a:visited,
+.items a:hover,
+.items a:active,
+.items a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+
+/*  styles for mobile */
+@media (max-width: 768px) {
+    #container {
+        display: block;
+        padding-top: 8%;;
+    }
+
+    #leftnav {
+        position: fixed;
+        left: -250px;
+        top: 0;
+        height: 100%;
+        width: 250px;
+        background-color: rgba(0, 0, 0, 0.8);
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+    #mobile-header {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+    #menu-toggle {
+        display: block;
+        position: fixed;
+        left: 10px;
+        top: 10px;
+        background-color: rgba(0, 0, 0, 0.8);
+        border: none;
+        color: rgb(255, 255, 255);
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1100;
+        padding-bottom: 3%;
+    }
+
+    #container > #replybox,
+    #container > #textbox {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #reply-static,
+    #reply-dynamic {
+        font-size: 24px;
+    }
+
+    li {
+        font-size: 24px;
+        padding-left: 20px;
+    }
+
+    #leftnav.open {
+        left: 0;
+    }
+}
+
+
+
+/* Thru GPT */
+@media (min-width: 769px) {
+    #menu-toggle {
+        display: none;
+    }
+}
